@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +33,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
+
+    # django-allauth
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,3 +136,30 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# django-allauth
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+# メールをコンソール上に出力する
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# 認証にユーザーネームを使用しない
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False 
+# 認証にメールアドレスを使用する
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+# メールアドレスの確認を必須とする
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# ログイン・ログアウト後のリダイレクトページの指定
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy("account_login")
+# ログアウトの確認ページを表示しない
+ACCOUNT_LOGOUT_ON_GET = True
