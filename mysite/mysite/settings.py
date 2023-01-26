@@ -159,7 +159,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 # メールアドレスの確認を必須とする
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # ログイン・ログアウト後のリダイレクトページの指定
-LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGIN_REDIRECT_URL = reverse_lazy('greenitem:index')
 ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy("account_login")
 # ログアウトの確認ページを表示しない
 ACCOUNT_LOGOUT_ON_GET = True
