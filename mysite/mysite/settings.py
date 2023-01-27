@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
+    'greenitem.apps.GreenitemConfig',
 
     # django-allauth
     'django.contrib.sites',
