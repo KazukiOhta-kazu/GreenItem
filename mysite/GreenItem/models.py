@@ -10,6 +10,9 @@ class Wallet(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     money = models.IntegerField(default=0)
 
+    def __str__(self):
+        return str(self.money)
+
 
 class Item(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -19,3 +22,6 @@ class Item(models.Model):
     memo = models.TextField(blank=True, null=True)
     reg_date = models.DateTimeField('register date', default=timezone.now)
     pur_date = models.DateTimeField('purchase date', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
