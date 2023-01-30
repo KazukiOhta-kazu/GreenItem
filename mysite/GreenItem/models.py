@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.timezone import localtime
 from django.contrib.auth import get_user_model
 
 
@@ -25,3 +26,9 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+    def since_register_date(self):
+        now_date = localtime(timezone.now()).date()
+        register_date = self.reg_date.date()
+        since_days = (now_date - register_date).days
+        return since_days
