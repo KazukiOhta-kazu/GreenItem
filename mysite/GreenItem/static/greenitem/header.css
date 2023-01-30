@@ -1,0 +1,10 @@
+header {
+    background-color: var(--main-color);
+    height: 45px;
+}
+
+header h1 {
+    color: white;
+    font-size: 30px;
+    line-height: 45px;
+}

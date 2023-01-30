@@ -1,0 +1,11 @@
+.list {
+    margin: 10px 0;
+}
+
+.nav-link {
+    color: var(--main-color);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--string-color);
+}
