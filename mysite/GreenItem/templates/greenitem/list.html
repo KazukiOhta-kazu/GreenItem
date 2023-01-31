@@ -1,0 +1,26 @@
+{% if item_list %}
+    {% for item in item_list %}
+        <div class="item">
+            <div class="row item-top">
+                <li class="col-8">{{ item.name }}</li>
+                <li class="col-4">¥ {{ item.price }} <i class="fa-solid fa-ellipsis"></i></li>
+            </div>
+
+            {% if item.brand %}
+                <li>{{ item.brand }}</li>
+            {% else %}
+                <li>なし</li>
+            {% endif %}
+
+            <li>{{ item.since_register_date }}</li>
+
+            {% if item.memo %}
+                <li>{{ item.memo }}</li>
+            {% else %}
+                <li>なし</li>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% else %}
+    <p>アイテムがありません。</p>
+{% endif %}

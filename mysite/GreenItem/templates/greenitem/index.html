@@ -1,0 +1,37 @@
+{% extends "./base.html" %}
+
+{% block content %}
+
+<section class="money">
+    <div class="container">
+        <div class="contents money-contents">
+            <p class="user-money">¥ {{ money }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="list">
+    <div class="container">
+        <div class="contents list-contents">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="wish-tab" data-bs-toggle="tab" data-bs-target="#wish-tab-pane" type="button" role="tab" aria-controls="wish-tab-pane" aria-selected="true">欲しいもの</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="have-tab" data-bs-toggle="tab" data-bs-target="#have-tab-pane" type="button" role="tab" aria-controls="have-tab-pane" aria-selected="false">マイアイテム</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="wish-tab-pane" role="tabpanel" aria-labelledby="wish-tab" tabindex="0">
+                    {% include "./list.html" with item_list=wish_list %}
+                </div>
+                <div class="tab-pane fade" id="have-tab-pane" role="tabpanel" aria-labelledby="have-tab" tabindex="0">
+                    {% include "./list.html" with item_list=my_list %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

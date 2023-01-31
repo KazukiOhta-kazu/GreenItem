@@ -1,0 +1,27 @@
+.list {
+    margin: 10px 0;
+}
+
+.list-contents {
+    padding: 10px;
+}
+
+.nav-link {
+    color: var(--main-color);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--string-color);
+}
+
+.item {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.item-top {
+    font-size: 15px;
+    font-weight: bold;
+}
