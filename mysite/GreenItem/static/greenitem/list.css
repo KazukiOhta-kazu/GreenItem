@@ -2,6 +2,10 @@
     margin: 10px 0;
 }
 
+.list-contents {
+    padding: 10px;
+}
+
 .nav-link {
     color: var(--main-color);
 }
