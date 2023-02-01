@@ -11,6 +11,7 @@ class Wallet(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     money = models.IntegerField(default=0)
 
+
     def __str__(self):
         return str(self.money)
 
@@ -24,11 +25,16 @@ class Item(models.Model):
     reg_date = models.DateTimeField('register date', default=timezone.now)
     pur_date = models.DateTimeField('purchase date', blank=True, null=True)
 
+
     def __str__(self):
         return self.name
 
-    def since_register_date(self):
+
+    def since_reg_or_pur_date(self):
         now_date = localtime(timezone.now()).date()
-        register_date = self.reg_date.date()
-        since_days = (now_date - register_date).days
+
+        if self.pur_date is None: start_point = self.reg_date.date()
+        else: start_point = self.pur_date.date()
+
+        since_days = (now_date - start_point).days
         return since_days
